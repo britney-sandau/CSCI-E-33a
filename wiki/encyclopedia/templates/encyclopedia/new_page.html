@@ -6,4 +6,19 @@ New Page
 
 {% block body %}
 <h1>Create a New Page</h1>
+
+<form action="{% url 'save' %}" method="POST">
+    {% csrf_token %}
+    <div>
+        <label>Please enter title.</label>
+        <input type="text" name="title">
+    </div>
+
+    <div>
+        <label>Please enter text.</label>
+        <textarea name="text" rows="10"></textarea>
+    </div>
+    <button type="submit">Click to Create</button>
+</form>
+
 {% endblock %}
